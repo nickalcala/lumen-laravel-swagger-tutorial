@@ -6,7 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=7.1.3",
-        "laravel/lumen-framework": "5.8.*"
+        "laravel/lumen-framework": "5.8.*",
+        "league/fractal": "^0.18.0",
+        "zircote/swagger-php": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.4",

@@ -11,6 +11,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call('UsersTableSeeder');
+        $faker = \Faker\Factory::create();
+
+        app('db.connection')->table('users')->insert([
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'password' => app('hash')->make('secret'),
+            'email_verified_at' => date('Y-m-d H:i:s'),
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+
+        app('db.connection')->table('posts')->insert([
+            'user_id' => 1,
+            'title' => $faker->sentence,
+            'body' => $faker->paragraph,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
     }
 }
